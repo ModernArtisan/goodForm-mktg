@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://modernedge.online/Articon.png" type="image/png" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<title>GeniusG&trade;</title>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
+	<style>
+		fieldset{ margin: 0;padding-left: 0%; border: 30px groove transparent;
+			border-image: url("borderGuilded.png")30% round;}
+		form{ width: 400px; display:inline-block;color:#7c5a25;text-align: center;}
+		#formOne{margin-left: 40%;}
+		#setOne{margin-left: 12px;padding:10px 5%;background-image: radial-gradient(#f4cc64, #fae08e,  #fae9b4);
+		}
+		#setTwo{margin-left: 12px;padding:10px 5%;}
+		.clearfix{content:""; clear: both; display: table;}
+		tab{padding-left:47px; ;}
+/*		input{display:flex;justify-content: center; align-content: flex-start;flex-direction: row;}*/
+/*		input{display:flex; flex-direction: column;}*/
+		input{height:42px;padding-left: 20px;}
+		textarea{width:100%;resize: vertical;}
+/*		label input{padding-left:10px;}*/
+		table tr td label{padding-bottom: 10px;}
+/*		table tr td label{margin-bottom: -10px;color:red;display:block;}*/
+		table{vertical-align: text-top;}
+		#bottomSet{align-items:flex-end;align-content: stretch;align-items: stretch;}
+		#bottomSet input{ margin-bottom: 12px;}
+		#tableHigh{display:none; }
+		
+		#diver:hover > #poll2 {display:block !important;}
+/*		#diver:hover #CheckboxGroup1_a #poll2{display:block !important;}*/
+		#diver{height:50px;transition:all 1s ease-out;}
+		#diver:hover #tableHigh{display: block;}
+		#diver:hover{height:300px;}
+		#poll2:hover{display:none;}
+		#marquee{ max-width:550px; position:absolute;
+			 left:36%;
+			mix-blend-mode: color-burn;z-index: -1; }
+		legend{ border: 30px groove transparent;
+			border-image: url("borderGuilded.png")30% round;}
+		.box { background-color:red; height:50px; width:50px; float:left; }
+.box2 { display:none; background-color:blue; height:50px; width:50px; float:left; }
+	</style>
+</head>
+
+<body>
+
+	<div class="menu">
+<?php include 'menu.php';?>
+</div>
+	
+		<div class="box"></div>
+<div class="box2"></div>
+	<script>
+	$(".box").hover(
+    function() {
+        $(".box2").show() 
+    }, 
+    function() {
+        $(".box2").hide();
+    }
+);
+	</script>
+	
+	
+	<h1>Welcome to my home page!</h1>
+	Your scheduler today has recieved the following file contents:
+	<?php
+$it = new DirectoryIterator("glob://SwanFTP/*.php");
+foreach($it as $f) {
+    printf("%s: %.1FK\n", $f->getFilename(), $f->getSize()/1024);
+}
+?>
+	
+	<?php include 'header.php';?>
+	<img src="GoldPillarMarquee.png" alt="Marquee" id="marquee">
+	<?php 
+	foreach (glob("/SwanFTP/New/*.html") as $file) {
+    $file_handle = fopen($file, "r") or
+die("unable to open file");
+    while (!feof($file_handle)) {
+        $line = fgets($file_handle);
+        echo $line;
+    }
+    fclose($file_handle);
+}
+$lowfile = fopen("poll_result2.txt", "r") or
+die("unable to open file");
+while(!feof($lowfile)) {
+  echo fgets($lowfile) . "<br>";
+}
+fclose($lowfile);
+
+$myfile = fopen("scheduling.txt", "r") or
+die("unable to open file");
+while(!feof($myfile)) {
+  echo fgets($myfile) . "<br>";
+}
+fclose($myfile);
+
+foreach (glob("/*.html") as $file) {
+    $file_handle = fopen($file, "r") or
+die("unable to open file");
+    while (!feof($file_handle)) {
+        $line = fgets($file_handle);
+        echo $line;
+    }
+    fclose($file_handle);
+}
+?>
+	<div class="menu">
+	<?php include 'menu.php'; include 'vote.html'; include 'EdgeHot.php'; ?>
+	</div>
+	<fieldset style="padding-left: 11px;"><legend>Both Fields Together</legend>
+	<form style="padding-bottom:10px;padding-right:10px;margin-top: 370px;" id="formOne">
+		<fieldset id="setOne"><legend>Field One</legend>
+			
+			<label style="max-width: 50px;">Is there a local business <br>you want to shoutout?
+			<input type="text" placeholder="Business name?">
+				<textarea placeholder="What's your shoutout?"></textarea></label>
+			
+			<div class="clearfix"></div><br>
+			<span>The table of ROI quiz</span>
+	<table width="100%" border="5" style="margin-bottom:  20px; overflow: hidden;">
+		<tr>
+			
+			<td><div id="diver">
+				<label for="CheckboxGroup1_a"  id="tableHigh">
+				<input type="checkbox" name="CheckboxGroup1_a" value="checkboxa" id="CheckboxGroup1_a">
+				Checkbox				</label><?php include 'vote2.html';?><label>
+				<input type="checkbox" name="CheckboxGroup1_b" value="checkboxb" id="CheckboxGroup1_b">
+				Checkbox</label><label>
+				<input type="checkbox" name="CheckboxGroup1_c" value="checkboxc" id="CheckboxGroup1_c">
+				Checkbox</label></div></td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroup2_a" value="checkboxd" id="CheckboxGroup2_a">
+				Checkbox</label><label>
+				<input type="checkbox" name="CheckboxGroup2_b" value="checkboxe" id="CheckboxGroup2_b">
+				Checkbox</label><label>
+				<input type="checkbox" name="CheckboxGroup2_c" value="checkboxf" id="CheckboxGroup2_c">
+				Checkbox</label></td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroup3_a" value="checkboxg" id="CheckboxGroup3_a">
+				Checkbox</label><label>
+				<input type="checkbox" name="CheckboxGroup3_b" value="checkboxh" id="CheckboxGroup3_b">
+				Checkbox</label><label>
+				<input type="checkbox" name="CheckboxGroup3_c" value="checkboxi" id="CheckboxGroup3_c">
+				Checkbox</label></td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid green; display:flex; flex-direction: row;justify-content: space-around;align-items: center;">
+				<label>
+				<input type="checkbox" name="CheckboxGroupA_A" value="checkbox" id="CheckboxGroup1_1">Checkbox
+				</label>
+				
+			</td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroupA_B" value="checkboxk" id="CheckboxGroupA_a">
+				Checkbox</label></td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroupB_C" value="checkboxl" id="CheckboxGroupB_b">
+				Checkbox</label></td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroupC_D" value="checkboxm" id="CheckboxGroupC_c">
+				Checkbox</label></td>
+		</tr>
+		<tr>
+			<td><label>
+				<input type="checkbox" name="CheckboxGroupD_E" value="checkboxn" id="CheckboxGroupD_d">
+				Checkbox</label></td>
+		</tr>
+	</table>
+			<div id="bottomSet" style="position:relative; left:0;text-align: left;width:100%;border:solid 2px;display:flex;flex-direction: column;"><span>Name:</span>
+				<input type="text" placeholder="First"> <br>			
+				<input type="text" placeholder="Last"> <br>
+			Provide your email and we will<br> send you the current poll results!<br>
+				<input type="email" placeholder="example@mailspot.com">
+				Telphone:
+		<input type="tel" placeholder="tel:     xxx-xxx-xxxx">
+				How many minutes do you think this took?
+		<input type="number" placeholder="type# or use -->">
+			</div>
+		</fieldset>
+	</form>
+			
+		
+			<div class="contact-title">
+		<h1>Say Hello</h1>
+		<h2>We are always ready to serve you!</h2>
+	</div>
+<div class="contact-form">
+		<form id="contact-form" method="post" action="EdgeHot.php">
+			<input name="name" type="text" class="form-control" placeholder="Your Name" required>
+			<br>
+			<input name="email" type="email" class="form-control" placeholder="You Email" required>
+			<br>
+			<textarea name="message" class="form-control" placeholder="Message" row="4" required>
+			</textarea><br>
+			
+			<input type="submit" class="form-control submit" value="SEND MESSAGE">
+		</form>
+	</div>
+		<form>
+		<fieldset id="setTwo"><legend>Field Two</legend>	
+		<input type="tel">
+		<input type="number">
+		</fieldset>
+	</form>
+	</fieldset>
+
+</body>
+</html>
